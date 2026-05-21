@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title> ANIMACIÓN3-CSS </title>
+        <style>
+            *{
+                padding: 0px;
+                margin: 0px;
+            }
+            .contenedor{
+                width: 400px;
+                height: 200px;
+                border: 1px solid black;
+                position: relative;  /* Para centar el div */
+                margin: 0 auto; /* para centara el div */
+
+                overflow: hidden; /* muestra solo lo interior */
+            }
+
+            .cuadrito{
+                width: 100px;
+                height: 100px;
+                background-color: orange;
+                position: absolute; /* permite mover el div del contenedor */
+                
+                top: 610px; /* Distancia de arriba para abajo */
+                left: 500px; /* Moverse a la izquierda */
+
+                animation: cuadrito 5s infinite linear;
+
+            }
+
+            @keyframes cuadrito{
+                /* Inicio */
+                from{
+                    top:-100;
+                    left: -100px;
+                }
+                /* Final */
+                to{
+                     top: 300px;
+                    left: 610px;
+                }
+
+            }
+
+        </style>
+       
+    </head>
+    <body>
+        <div class="contenedor">
+            <div class="cuadrito"></div>
+
+        </div>
+    </body>
+    <a href="./index.html">Regresar al inicio</a>
+</html>

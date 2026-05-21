@@ -1,0 +1,135 @@
+<html>
+  <title>ANIMACIONES CSS - ANIMATION</title>
+  <head>
+    <style>
+      body {
+      background: linear-gradient(180deg, #95cbeb, #68a1cf);
+      font-family: "Century Gothic", sans-serif;
+      }
+      
+      h1{
+        font-family: "century gothic";
+        color: rgba(49, 33, 192, 0);
+        text-align: center;
+
+        animation-name: titulo;
+        animation-duration: 3s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+      }
+      @keyframes titulo{
+        from{
+            color: rgba(60, 23, 161, 0);
+        }
+        to{
+            color: rgb(51, 35, 146);
+        }
+      }
+      .imagen1{
+        height: 200px;
+        width: 200px;
+        display: block;
+        margin: auto;
+        opacity: 0;
+        animation: aparecer 3s 3s 1 forwards;
+        }
+      .imagen2{
+        height: 200px;
+        width: 300px;
+        display: block;
+        margin: auto;
+        opacity: 0;
+        animation: aparecer 3s 12s 1 forwards;
+      }
+
+      @keyframes aparecer{
+          from{
+          opacity: 0;
+        }
+        to{
+          opacity: 1;
+        }
+        }
+      h3{
+        text-align: center;
+        font-family: "century gothic", sans-serif;
+        font-weight: bold;
+        animation-name: texto;
+        animation-duration: 3s;
+        animation-iteration-count: 1;
+        animation-fill-mode: backwards;
+        animation-delay: 6s;
+        }
+      @keyframes texto {
+        from{
+          color: rgba(0,0,0,0);
+        }
+        to{
+          color: rgba(0,0,0,1);
+        }
+      }
+      .descripcion{
+        text-align: center;
+        font-family: "century gothic", sans-serif; 
+        font-weight: bold;
+        animation-name: descripcion;
+        animation-duration: 3s;
+        animation-iteration-count: 1;
+        animation-fill-mode: backwards;
+        animation-delay: 9s;
+        }
+        @keyframes descripcion{
+          from{
+          color: rgba(0,0,0,0);
+        }
+          to{
+          color: rgba(0,0,0,1);
+        }
+        }
+
+      .carrera{
+        text-align: center;
+        font-family: "century gothic", sans-serif;
+        font-weight: bold;
+        animation-name: carrera;
+        animation-duration: 3s;
+        animation-iteration-count: 1;
+        animation-fill-mode: backwards;
+        animation-delay: 15s;
+        }
+        @keyframes carrera{
+          from{
+          color: rgba(0,0,0,0);
+        }
+          to{
+          color: rgba(0,0,0,1);
+        }
+        }
+    </style>
+  </head>
+  <body>
+    <h1>SAMUEL HARRIS ALTMAN</h1>
+    <img class="imagen1" src="img/sam altman.jpg">
+    <h3>Director ejecutivo de OpenAI</h3>
+    <p class="descripcion">
+      DESCRIPCIÓN <br>
+      Sam Altman (Chicago, 1985) es el empresario e innovador detrás de
+      OpenAI, la compañía que revolucionó el mundo con ChatGPT y DALL-E.
+      Considerado una de las mentes más influyentes de la inteligencia
+      artificial, es comparado con referentes como Steve Jobs y Bill Gates
+      por su visión del impacto tecnológico en la humanidad.
+    </p>
+    <img class="imagen2" src="img/sam altman1.jpg">
+    <p class="carrera">
+      <br>
+      CARRERA <br>
+       A los 19 años fundó Loopt, una red social de ubicación respaldada
+      por Y Combinator. De 2014 a 2019 presidió Y Combinator, impulsando
+      empresas como Airbnb y Dropbox. En 2015 cofundó OpenAI junto a
+      Elon Musk, asumiendo como CEO en 2019. Bajo su liderazgo, OpenAI
+      lanzó ChatGPT en 2022, alcanzando un millón de usuarios en solo
+      cinco días y cambiando para siempre la industria tecnológica.
+    </p>
+  </body>
+  <a href="../index.html">Regresar al inicio</a>
+</html>
