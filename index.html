@@ -1,7 +1,7 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <title>Repositorio de Rony</title>
-
     <style>
 
         *{
@@ -11,515 +11,520 @@
         }
 
         body{
-
             background:
-            linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
-            url("https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop");
-
+                linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
+                url("https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop");
             background-size:cover;
             background-position:center;
             background-attachment:fixed;
-
             font-family:'Segoe UI',sans-serif;
         }
 
         .capa{
             width:100%;
             min-height:100vh;
-            padding-bottom:50px;
+            padding-bottom:60px;
         }
 
-        /* TITULO */
-
         .titulo{
-
             width:100%;
-            padding:30px 20px;
-
+            padding:35px 20px;
             text-align:center;
-
             background:rgba(10,10,20,0.8);
-
             backdrop-filter:blur(8px);
-
             border-bottom:1px solid rgba(0,255,255,0.3);
         }
 
         .titulo h1{
-
-            font-size:42px;
+            font-size:38px;
             color:white;
-
-            letter-spacing:2px;
+            letter-spacing:3px;
             font-weight:900;
-
             text-shadow:
-            0px 0px 10px cyan,
-            0px 0px 20px rgba(0,255,255,0.5);
-
+                0px 0px 10px cyan,
+                0px 0px 25px rgba(0,255,255,0.5);
             animation:zoom 2s infinite alternate;
         }
 
         @keyframes zoom{
-
-            from{
-                transform:scale(1);
-            }
-
-            to{
-                transform:scale(1.03);
-            }
-
+            from{ transform:scale(1); }
+            to{ transform:scale(1.03); }
         }
-
-        /* TEXTO */
 
         .instruccion{
-
             width:fit-content;
-
-            margin:30px auto 10px auto;
-
-            padding:12px 30px;
-
+            margin:35px auto 10px auto;
+            padding:12px 32px;
             background:rgba(255,255,255,0.08);
-
             border:1px solid rgba(255,255,255,0.15);
-
             color:white;
-
             border-radius:50px;
-
-            font-size:18px;
+            font-size:17px;
             font-weight:bold;
-
             backdrop-filter:blur(10px);
-
-            box-shadow:
-            0px 0px 15px rgba(0,255,255,0.2);
+            box-shadow:0px 0px 15px rgba(0,255,255,0.2);
+            text-align:center;
         }
 
-        /* MENU */
-
-        .menu{
-
-            width:100%;
-
+        /* ── GRID DE SEMANAS ── */
+        .semanas-grid{
+            width:92%;
+            margin:30px auto 0 auto;
             display:flex;
-            justify-content:center;
-            gap:25px;
-
-            padding:30px;
-
             flex-wrap:wrap;
+            justify-content:center;
+            gap:30px;
         }
 
-        .menu button{
+        /* ── TARJETA SEMANA ── */
+        .semana-card{
+            width:260px;
+            background:rgba(255,255,255,0.07);
+            border:1px solid rgba(255,255,255,0.15);
+            border-radius:20px;
+            overflow:hidden;
+            backdrop-filter:blur(12px);
+            cursor:pointer;
+            transition:0.4s;
+            box-shadow:0px 10px 25px rgba(0,0,0,0.4);
+            display:block;
+            user-select:none;
+        }
 
-            padding:15px 35px;
+        .semana-card:hover{
+            transform:translateY(-8px) scale(1.02);
+            box-shadow:0px 15px 35px rgba(0,255,255,0.3);
+            border-color:rgba(0,255,255,0.4);
+        }
 
-            border:none;
+        .semana-card.activa{
+            border:2px solid rgba(0,255,255,0.7);
+            box-shadow:0px 0px 25px rgba(0,255,255,0.4);
+        }
 
-            border-radius:50px;
+        .semana-card img{
+            width:100%;
+            height:160px;
+            object-fit:cover;
+            display:block;
+            pointer-events:none;
+        }
 
-            background:linear-gradient(45deg,#00e5ff,#00bcd4);
+        .semana-footer{
+            padding:14px 18px;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+        }
 
-            color:black;
+        .semana-footer h2{
+            font-size:20px;
+            color:#00e5ff;
+            letter-spacing:1px;
+            font-weight:800;
+            text-shadow:0px 0px 8px rgba(0,255,255,0.4);
+        }
 
+        .semana-footer .desc{
+            font-size:12px;
+            color:rgba(255,255,255,0.6);
+            margin-top:3px;
+        }
+
+        .chevron{
+            font-size:18px;
+            color:rgba(0,255,255,0.7);
+            transition:transform 0.3s;
+        }
+
+        .semana-card.activa .chevron{
+            transform:rotate(180deg);
+        }
+
+        /* ── PANELES — todos debajo del grid, uno por uno ── */
+        .paneles-wrapper{
+            width:92%;
+            margin:0 auto;
+        }
+
+        .panel{
+            background:rgba(10,10,30,0.8);
+            border:1px solid rgba(0,255,255,0.25);
+            border-radius:20px;
+            backdrop-filter:blur(14px);
+            overflow:hidden;
+            max-height:0;
+            opacity:0;
+            margin-top:0;
+            transition: max-height 0.5s ease, opacity 0.4s ease, margin-top 0.4s ease;
+        }
+
+        .panel.abierto{
+            max-height:2000px;
+            opacity:1;
+            margin-top:25px;
+        }
+
+        .panel-titulo{
+            padding:18px 25px;
             font-size:16px;
             font-weight:bold;
-
-            cursor:pointer;
-
-            transition:0.4s;
-
-            box-shadow:
-            0px 0px 20px rgba(0,255,255,0.4);
-        }
-
-        .menu button:hover{
-
-            transform:
-            translateY(-5px)
-            scale(1.05);
-
-            box-shadow:
-            0px 10px 30px rgba(0,255,255,0.6);
-        }
-
-        /* OCULTAR */
-
-        .oculto{
-            display:none;
-        }
-
-        /* CONTENEDOR */
-
-        .contenedor{
-
-            width:92%;
-
-            margin:auto;
-
-            display:flex;
-            flex-wrap:wrap;
-            justify-content:center;
-
-            gap:35px;
-
-            padding:40px 0;
-        }
-
-        /* TARJETAS */
-
-        .proyecto{
-
-            width:270px;
-
-            background:rgba(255,255,255,0.08);
-
-            border:1px solid rgba(255,255,255,0.15);
-
-            border-radius:25px;
-
-            overflow:hidden;
-
-            backdrop-filter:blur(12px);
-
-            transition:0.5s;
-
-            box-shadow:
-            0px 10px 25px rgba(0,0,0,0.4);
-        }
-
-        .proyecto:hover{
-
-            transform:
-            translateY(-10px)
-            scale(1.03);
-
-            box-shadow:
-            0px 15px 35px rgba(0,255,255,0.35);
-        }
-
-        /* TITULO TARJETA */
-
-        .proyecto h2{
-
-            text-align:center;
-
-            padding:18px;
-
-            font-size:28px;
-
-            color:#00e5ff;
-
+            color:rgba(255,255,255,0.5);
             letter-spacing:1px;
+            border-bottom:1px solid rgba(0,255,255,0.15);
         }
 
-        /* IMAGEN */
-
-        .proyecto img{
-
-            width:100%;
-            height:170px;
-
-            object-fit:cover;
+        .seccion{
+            padding:25px 30px;
         }
 
-        /* CONTENIDO */
-
-        .contenido{
-
-            padding:20px;
-
-            text-align:center;
+        .seccion + .seccion{
+            border-top:1px solid rgba(255,255,255,0.08);
         }
 
-        .contenido p{
-
-            color:white;
-
-            font-size:15px;
-
-            line-height:25px;
-
+        .seccion-titulo{
+            display:inline-block;
+            padding:6px 20px;
+            border-radius:50px;
+            font-size:13px;
+            font-weight:bold;
+            letter-spacing:1px;
             margin-bottom:20px;
         }
 
-        /* BOTON */
+        .seccion-titulo.clase{
+            background:rgba(0,255,255,0.15);
+            color:#00e5ff;
+            border:1px solid rgba(0,255,255,0.35);
+        }
 
-        .contenido a{
+        .seccion-titulo.tarea{
+            background:rgba(255,215,0,0.15);
+            color:#ffd740;
+            border:1px solid rgba(255,215,0,0.35);
+        }
 
+        .proyectos{
+            display:flex;
+            flex-wrap:wrap;
+            gap:20px;
+        }
+
+        .proyecto{
+            width:230px;
+            background:rgba(255,255,255,0.07);
+            border:1px solid rgba(255,255,255,0.12);
+            border-radius:18px;
+            overflow:hidden;
+            transition:0.4s;
+            box-shadow:0px 8px 20px rgba(0,0,0,0.4);
+        }
+
+        .proyecto:hover{
+            transform:translateY(-8px) scale(1.03);
+            box-shadow:0px 14px 30px rgba(0,255,255,0.3);
+        }
+
+        .proyecto img{
+            width:100%;
+            height:140px;
+            object-fit:cover;
+        }
+
+        .proyecto-info{
+            padding:16px;
+            text-align:center;
+        }
+
+        .proyecto-info p{
+            color:rgba(255,255,255,0.85);
+            font-size:14px;
+            line-height:22px;
+            margin-bottom:14px;
+        }
+
+        .proyecto-info a{
             display:inline-block;
-
-            padding:12px 22px;
-
+            padding:9px 20px;
             border-radius:50px;
-
             text-decoration:none;
-
             color:black;
             font-weight:bold;
-
+            font-size:13px;
             background:linear-gradient(45deg,#00e5ff,#00bcd4);
-
             transition:0.4s;
         }
 
-        .contenido a:hover{
-
+        .proyecto-info a:hover{
             transform:scale(1.08);
-
-            box-shadow:
-            0px 0px 20px rgba(0,255,255,0.6);
+            box-shadow:0px 0px 18px rgba(0,255,255,0.6);
         }
 
     </style>
-
 </head>
-
 <body>
+<div class="capa">
 
-    <div class="capa">
+    <div class="titulo">
+        <h1>REPOSITORIO DE TRABAJOS DE RONY TTITO QUISPE</h1>
+    </div>
 
-        <!-- TITULO -->
+    <div class="instruccion">HAGA CLIC EN LA SEMANA QUE QUIERA REVISAR</div>
 
-        <div class="titulo">
+    <!-- ── TARJETAS (todas juntas, sin paneles entre ellas) ── -->
+    <div class="semanas-grid">
 
-            <h1>
-                REPOSITORIO DE TRABAJOS DE RONY TTITO QUISPE
-            </h1>
-
-        </div>
-
-        <!-- TEXTO -->
-
-        <div class="instruccion">
-
-            HAGA CLIC EN EL PROYECTO QUE QUIERA REVISAR
-
-        </div>
-
-        <!-- MENU -->
-
-        <div class="menu">
-
-            <button onclick="mostrarClase()">
-                TRABAJOS EN CLASE
-            </button>
-
-            <button onclick="mostrarTareas()">
-                TAREAS
-            </button>
-
-        </div>
-
-        <!-- TRABAJOS EN CLASE -->
-
-        <div id="clase">
-
-            <div class="instruccion">
-
-                TRABAJOS EN CLASE
-
-            </div>
-
-            <div class="contenedor">
-
-                <!-- PROYECTO 1 -->
-
-                <div class="proyecto">
-
+        <div class="semana-card" data-semana="s1" onclick="toggleSemana('s1')">
+            <img src="https://images.unsplash.com/photo-1604948501466-4e9c339b9c24?q=80&w=870&auto=format&fit=crop" alt="Semana 1">
+            <div class="semana-footer">
+                <div>
                     <h2>SEMANA 1</h2>
-
-                    <img src="https://images.unsplash.com/photo-1604948501466-4e9c339b9c24?q=80&w=870&auto=format&fit=crop">
-
-                    <div class="contenido">
-
-                        <p>
-                            Proyecto 1 - Tablero de ajedrez
-                        </p>
-
-                        <a href="animation-css0/index.html">
-                            VER PROYECTO
-                        </a>
-
-                    </div>
-
+                    <div class="desc">Tablero de ajedrez</div>
                 </div>
-
-                <!-- PROYECTO 2 -->
-
-                <div class="proyecto">
-
-                    <h2>SEMANA 2</h2>
-
-                    <img src="https://images.unsplash.com/photo-1622737133809-d95047b9e673?q=80&w=1032&auto=format&fit=crop">
-
-                    <div class="contenido">
-
-                        <p>
-                            Proyecto 2 - Texto e imagen
-                        </p>
-
-                        <a href="animation-css1/index.html">
-                            VER PROYECTO
-                        </a>
-
-                    </div>
-
-                </div>
-
-                <!-- PROYECTO 3 -->
-
-                <div class="proyecto">
-
-                    <h2>SEMANA 3</h2>
-
-                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop">
-
-                    <div class="contenido">
-
-                        <p>
-                            Proyecto 3 - Aparición animada
-                        </p>
-
-                        <a href="animation-css2/index.html">
-                            VER PROYECTO
-                        </a>
-
-                    </div>
-
-                </div>
-
+                <span class="chevron">▼</span>
             </div>
-
         </div>
 
-        <!-- TAREAS -->
-
-        <div id="tareas" class="oculto">
-
-            <div class="instruccion">
-
-                TAREAS
-
+        <div class="semana-card" data-semana="s2" onclick="toggleSemana('s2')">
+            <img src="https://images.unsplash.com/photo-1622737133809-d95047b9e673?q=80&w=1032&auto=format&fit=crop" alt="Semana 2">
+            <div class="semana-footer">
+                <div>
+                    <h2>SEMANA 2</h2>
+                    <div class="desc">Texto e imagen</div>
+                </div>
+                <span class="chevron">▼</span>
             </div>
+        </div>
 
-            <div class="contenedor">
-
-                <!-- PROYECTO 4 -->
-
-                <div class="proyecto">
-
-                    <h2>TRABAJO 1</h2>
-
-                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop">
-
-                    <div class="contenido">
-
-                        <p>
-                            Proyecto 4 - Imagen animada
-                        </p>
-
-                        <a href="animation-css3/index.html">
-                            VER PROYECTO
-                        </a>
-
-                    </div>
-
+        <div class="semana-card" data-semana="s3" onclick="toggleSemana('s3')">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Semana 3">
+            <div class="semana-footer">
+                <div>
+                    <h2>SEMANA 3</h2>
+                    <div class="desc">Aparición animada</div>
                 </div>
-
-                <!-- PROYECTO 5 -->
-
-                <div class="proyecto">
-
-                    <h2>TRABAJO 2</h2>
-
-                    <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=1200&auto=format&fit=crop">
-
-                    <div class="contenido">
-
-                        <p>
-                            Proyecto 5 - Animación por pasos
-                        </p>
-
-                        <a href="animacion-por-pasos/index.html">
-                            VER PROYECTO
-                        </a>
-
-                    </div>
-
-                </div>
-
-                <!-- PROYECTO 6 -->
-
-                <div class="proyecto">
-
-                    <h2>TRABAJO 3</h2>
-
-                    <img src="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?q=80&w=1200&auto=format&fit=crop">
-
-                    <div class="contenido">
-
-                        <p>
-                            Proyecto 6 - Animación por pasos 2
-                        </p>
-
-                        <a href="animacion-por-pasos-2/index.html">
-                            VER PROYECTO
-                        </a>
-
-                    </div>
-
-                </div>
-
-                <!-- PROYECTO 7 -->
-
-                <div class="proyecto">
-
-                    <h2>TRABAJO 4</h2>
-
-                    <img src="https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?q=80&w=1200&auto=format&fit=crop">
-
-                    <div class="contenido">
-
-                        <p>
-                            Proyecto 7 - Animación por pasos 3
-                        </p>
-
-                        <a href="animacion-por-pasos-3/index.html">
-                            VER PROYECTO
-                        </a>
-
-                    </div>
-
-                </div>
-
+                <span class="chevron">▼</span>
             </div>
+        </div>
 
+        <div class="semana-card" data-semana="s4" onclick="toggleSemana('s4')">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Semana 4">
+            <div class="semana-footer">
+                <div>
+                    <h2>SEMANA 4</h2>
+                    <div class="desc">Aparición animada</div>
+                </div>
+                <span class="chevron">▼</span>
+            </div>
+        </div>
+
+        <div class="semana-card" data-semana="s6" onclick="toggleSemana('s6')">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Semana 6">
+            <div class="semana-footer">
+                <div>
+                    <h2>SEMANA 6</h2>
+                    <div class="desc">Aparición animada</div>
+                </div>
+                <span class="chevron">▼</span>
+            </div>
         </div>
 
     </div>
 
-    <script>
+    <!-- ── PANELES (todos debajo del grid, nunca entre las tarjetas) ── -->
+    <div class="paneles-wrapper">
 
-        function mostrarClase(){
+        <!-- PANEL SEMANA 1 -->
+        <div id="panel-s1" class="panel">
+            <div class="panel-titulo">SEMANA 1</div>
+            <div class="seccion">
+                <div class="seccion-titulo tarea">📝 TAREA</div><
+                <div class="proyectos">
 
-            document.getElementById("clase").classList.remove("oculto");
-            document.getElementById("tareas").classList.add("oculto");
+                    <div class="proyecto">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop" alt="Imagen animada">
+                        <div class="proyecto-info">
+                            <p>Proyecto 1 - Tablero de ajedrez</p>
+                            <a href="animation-css0/index.html">VER PROYECTO</a>
+                        </div>
+                    </div>
 
+                </div>
+            </div>
+        </div>
+
+        <!-- PANEL SEMANA 2 -->
+        <div id="panel-s2" class="panel">
+            <div class="panel-titulo">SEMANA 2</div>
+            <div class="seccion">
+                <div class="seccion-titulo clase">📋 TRABAJO EN CLASE</div>
+                <div class="proyectos">
+
+                    <div class="proyecto">
+                        <img src="https://images.unsplash.com/photo-1622737133809-d95047b9e673?q=80&w=1032&auto=format&fit=crop" alt="Texto e imagen">
+                        <div class="proyecto-info">
+                            <p>Proyecto 1 - Texto e imagen</p>
+                            <a href="animation-css1/index.html">VER PROYECTO</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="seccion">
+                <div class="seccion-titulo tarea">📝 TAREA</div>
+                <div class="proyectos">
+
+                    <div class="proyecto">
+                        <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=1200&auto=format&fit=crop" alt="Animación por pasos">
+                        <div class="proyecto-info">
+                            <p>Proyecto 2 - Animación de texto e imagen</p>
+                            <a href="animation-css2/index.html">VER PROYECTO</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- PANEL SEMANA 3 -->
+        <div id="panel-s3" class="panel">
+            <div class="panel-titulo">SEMANA 3</div>
+            <div class="seccion">
+                <div class="seccion-titulo clase">📋 TRABAJO EN CLASE</div>
+                <div class="proyectos">
+
+                    <div class="proyecto">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Aparición animada">
+                        <div class="proyecto-info">
+                            <p>Proyecto 1 - Movimiento de divs y tiempos </p>
+                            <a href="animation-css3/index.html">VER PROYECTO</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- PANEL SEMANA 4 -->
+        <div id="panel-s4" class="panel">
+            <div class="panel-titulo">SEMANA 4</div>
+            <div class="seccion">
+                <div class="seccion-titulo clase">📋 TRABAJO EN CLASE</div>
+                <div class="proyectos">
+
+                    <div class="proyecto">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Aparición animada">
+                        <div class="proyecto-info">
+                            <p>Proyecto 1 - Aparición por pasos 2</p>
+                            <a href="animacion-por-pasos-2/index.html">VER PROYECTO</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="seccion">
+                <div class="seccion-titulo tarea">📝 TAREA</div>
+                <div class="proyectos">
+
+                    <div class="proyecto">
+                        <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=1200&auto=format&fit=crop" alt="Animación por pasos">
+                        <div class="proyecto-info">
+                            <p>Proyecto 2 - Animación  por pasos 3</p>
+                            <a href="animacion-por-pasos-3/index.html">VER PROYECTO</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- PANEL SEMANA 6 -->
+        <div id="panel-s6" class="panel">
+            <div class="panel-titulo">SEMANA 6</div>
+            <div class="seccion">
+                <div class="seccion-titulo clase">📋 TRABAJO EN CLASE</div>
+                <div class="proyectos">
+
+                    <div class="proyecto">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Aparición animada">
+                        <div class="proyecto-info">
+                            <p>Proyecto 1 - Aparición por pasos 2</p>
+                            <a href="clippath/clippath-practica/index.html">VER PROYECTO</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+            <div class="seccion">
+                <div class="seccion-titulo tarea">📝 TAREA</div>
+                <div class="proyectos">
+
+                    <div class="proyecto">
+                        <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=1200&auto=format&fit=crop" alt="Animación por pasos">
+                        <div class="proyecto-info">
+                            <p>Proyecto 2 - Animación  por pasos 3</p>
+                            <a href="clippath/parallax/index.html">VER PROYECTO</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div><!-- fin paneles-wrapper -->
+
+</div>
+
+<script>
+    const STORAGE_KEY = 'rony_semanas_abiertas';
+
+    function leerEstado() {
+        try {
+            return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+        } catch(e) {
+            return {};
         }
+    }
 
-        function mostrarTareas(){
+    function guardarEstado(estado) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(estado));
+    }
 
-            document.getElementById("tareas").classList.remove("oculto");
-            document.getElementById("clase").classList.add("oculto");
+    function toggleSemana(id) {
+        const estado = leerEstado();
+        const yaAbierta = estado[id];
+        // Cerrar todas las semanas
+        ['s1', 's2', 's3', 's4', 's6'].forEach(function(otro) {
+            estado[otro] = false;
+        });
+        // Si la semana clicada estaba cerrada, abrirla; si estaba abierta, queda cerrada
+        if (!yaAbierta) estado[id] = true;
+        guardarEstado(estado);
+        aplicarEstado(estado);
+    }
 
-        }
+    function aplicarEstado(estado) {
+        ['s1', 's2', 's3', 's4', 's6'].forEach(function(id) {
+            const card  = document.querySelector('.semana-card[data-semana="' + id + '"]');
+            const panel = document.getElementById('panel-' + id);
+            if (estado[id]) {
+                card.classList.add('activa');
+                panel.classList.add('abierto');
+            } else {
+                card.classList.remove('activa');
+                panel.classList.remove('abierto');
+            }
+        });
+    }
 
-    </script>
+    // Restaurar estado al cargar la página
+    aplicarEstado(leerEstado());
+</script>
 
 </body>
 </html>
