@@ -328,6 +328,17 @@
                 <span class="chevron">▼</span>
             </div>
         </div>
+        
+        <div class="semana-card" data-semana="s7" onclick="toggleSemana('s7')">
+            <img src="img/SEMANA-7.jpeg" alt="Semana 7">
+            <div class="semana-footer">
+                <div>
+                    <h2>SEMANA 7</h2>
+                    <div class="desc">Paralllax + svg</div>
+                </div>
+                <span class="chevron">▼</span>
+            </div>
+        </div>
 
     </div>
 
@@ -483,6 +494,26 @@
             </div>
 
         </div>
+        
+        <!-- PANEL SEMANA 7 -->
+        <div id="panel-s7" class="panel">
+            <div class="panel-titulo">SEMANA 7</div>
+            <div class="seccion">
+                <div class="seccion-titulo clase">📋 TRABAJO EN CLASE</div>
+                <div class="proyectos">
+
+                    <div class="proyecto">
+                        <img src="img/parallax_svg.png" alt="Aparición animada">
+                        <div class="proyecto-info">
+                            <p>Proyecto 1 - parrallax + svg </p>
+                            <a href="parallax/index.html">VER PROYECTO</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
 
     </div><!-- fin paneles-wrapper -->
 
@@ -507,7 +538,7 @@
         const estado = leerEstado();
         const yaAbierta = estado[id];
         // Cerrar todas las semanas
-        ['s1', 's2', 's3', 's4', 's6'].forEach(function(otro) {
+        ['s1', 's2', 's3', 's4', 's6', 's7'].forEach(function(otro) {
             estado[otro] = false;
         });
         // Si la semana clicada estaba cerrada, abrirla; si estaba abierta, queda cerrada
@@ -517,7 +548,7 @@
     }
 
     function aplicarEstado(estado) {
-        ['s1', 's2', 's3', 's4', 's6'].forEach(function(id) {
+        ['s1', 's2', 's3', 's4', 's6', 's7'].forEach(function(id) {
             const card  = document.querySelector('.semana-card[data-semana="' + id + '"]');
             const panel = document.getElementById('panel-' + id);
             if (estado[id]) {
