@@ -1,0 +1,266 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+
+.parallax {
+    width: 1200px;
+    height: 700px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid black;
+    margin: 0 auto;
+}
+
+.fondo {
+    width: 1200px;
+    height: 700px;
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.cielo {
+    width: 1390px;
+    height: 700px;
+    position: absolute;
+
+    top: -350px;
+    left: -70px;
+    z-index: 2;
+    opacity: .6;
+}
+
+.nubes {
+    width: 1450px;
+    height: 700px;
+    position: absolute;
+
+    top: -180px;
+    left: -120px;
+    z-index: 3;
+    opacity: .9;
+
+    animation: nubes 60s linear infinite;
+}
+
+.montanas {
+    width: 1500px;
+    height: 900px;
+    position: absolute;
+
+    top: -150px;
+    left: 0px;
+    z-index: 4;
+
+    animation: montanas 45s linear infinite;
+}
+
+.islas {
+    width: 1200px;
+    height: 700px;
+    position: absolute;
+
+    top: 110px;
+    left: 0px;
+    z-index: 5;
+
+    animation: islas 30s linear infinite;
+}
+
+.catarata1 {
+    width: 500px;
+    height: 420px;
+    position: absolute;
+
+    top: 390px;
+    left: -70px;
+    z-index: 6;
+
+    animation: agua1 12s infinite alternate ease-in-out;
+}
+
+.catarata2 {
+    width: 500px;
+    height: 420px;
+    position: absolute;
+
+    top: 340px;
+    left: 780px;
+    z-index: 6;
+
+    animation: agua2 12s infinite alternate ease-in-out;
+}
+
+.niebla {
+    width: 1200px;
+    height: 300px;
+    position: absolute;
+
+    top: 430px;
+    left: 0px;
+    opacity: .5;
+    z-index: 7;
+
+    animation: niebla 25s linear infinite;
+}
+
+.frontal {
+    width: 1300px;
+    height: 650px;
+    position: absolute;
+
+    top: 180px;
+    left: -120px;
+    z-index: 8;
+
+    animation: frontal 18s linear infinite;
+}
+
+.portada_izquierda {
+    width: 900px;
+    height: 700px;
+    position: absolute;
+
+    top: 0px;
+    left: -200px;
+    z-index: 9;
+
+    animation: portada_izquierda 2s ease-in-out forwards;
+}
+
+.portada_derecha {
+    width: 900px;
+    height: 700px;
+    position: absolute;
+
+    top: 0px;
+    left: 300px;
+    z-index: 9;
+
+    animation: portada_derecha 2s ease-in-out forwards;
+}
+
+@keyframes nubes {
+    0% {
+        transform: translateX(0px) translateY(0px);
+    }
+
+    50% {
+        transform: translateX(-60px) translateY(3px);
+    }
+
+    100% {
+        transform: translateX(0px) translateY(0px);
+    }
+}
+
+@keyframes montanas {
+    0% {
+        transform: translateX(0px) translateY(0px);
+    }
+
+    50% {
+        transform: translateX(-80px) translateY(6px);
+    }
+
+    100% {
+        transform: translateX(0px) translateY(0px);
+    }
+}
+
+@keyframes islas {
+    0% {
+        transform: translateX(0px) translateY(0px);
+    }
+
+    50% {
+        transform: translateX(-120px) translateY(10px);
+    }
+
+    100% {
+        transform: translateX(0px) translateY(0px);
+    }
+}
+
+@keyframes frontal {
+    0% {
+        transform: translateX(0px) translateY(0px);
+    }
+
+    50% {
+        transform: translateX(-180px) translateY(15px);
+    }
+
+    100% {
+        transform: translateX(0px) translateY(0px);
+    }
+}
+
+@keyframes niebla {
+    0% {
+        transform: translateX(0px);
+        opacity: .4;
+    }
+
+    50% {
+        transform: translateX(40px);
+        opacity: .6;
+    }
+
+    100% {
+        transform: translateX(0px);
+        opacity: .4;
+    }
+}
+
+@keyframes agua1 {
+    0% {
+        transform: translateX(0px) translateY(0px);
+    }
+
+    50% {
+        transform: translateX(-20px) translateY(8px);
+    }
+
+    100% {
+        transform: translateX(0px) translateY(0px);
+    }
+}
+
+@keyframes agua2 {
+    0% {
+        transform: translateX(0px) translateY(0px);
+    }
+
+    50% {
+        transform: translateX(-20px) translateY(8px);
+    }
+
+    100% {
+        transform: translateX(0px) translateY(0px);
+    }
+}
+
+@keyframes portada_izquierda {
+    0% {
+        transform: translateX(0px);
+    }
+
+    100% {
+        transform: translateX(-900px);
+    }
+}
+
+@keyframes portada_derecha {
+    0% {
+        transform: translateX(0px);
+    }
+
+    100% {
+        transform: translateX(900px);
+    }
+}
