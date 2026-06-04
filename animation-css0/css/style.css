@@ -1,0 +1,23 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    float: left;
+}
+#cuadrito1{
+    background-color: white;/*comentario*/
+}
+#cuadrito2{
+    background-color: black;
+    
+}
+#cuadrito1, #cuadrito2{
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+}
+
+.contenedor{
+    height: 100px;
+    width: 1000px;
+    background-color: rgb(211, 245, 89);
+}

@@ -1,0 +1,52 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.contenedor {
+    width: 400px;
+    height: 200px;
+    background-color: black;
+    border: 1px solid black;
+    position: relative;
+    /* Para centar el div */
+    margin: 0 auto;
+    /* para centara el div */
+
+    overflow: hidden;
+    /* muestra solo lo interior */
+}
+
+.cuadrito {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    /* permite mover el div del contenedor */
+
+    top: 50px;
+    /* Distancia de arriba para abajo */
+    left: 150px;
+    /* Moverse a la izquierda */
+
+    animation: cuadrito 3s infinite linear;
+
+}
+
+@keyframes cuadrito {
+
+    /* Inicio */
+    from {
+        left: -100px;
+    }
+
+    /* Final */
+    to {
+        left: 500px;
+    }
+
+}
+
+.cuadrito img {
+    width: 100px;
+    height: 100px;
+}
